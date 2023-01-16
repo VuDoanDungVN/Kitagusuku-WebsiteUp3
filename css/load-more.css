@@ -1,0 +1,17 @@
+/*Load more button*/
+.load-more-main button {
+    display      : block;
+    min-width    : 5%;
+    background   : #515f51;
+    color        : white;
+    padding      : 10px 10px;
+    margin       : auto;
+    border       : none;
+    border-radius: 4px;
+    cursor       : pointer;
+    font-size    : 11px;
+}
+
+.load-more-main button:hover {
+    opacity: 0.8;
+}

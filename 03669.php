@@ -1,10 +1,13 @@
 <?php
 session_start();
 include_once "php/config.php";
+include_once "php/form-submit.php";
+include_once "php/comment.php";
 if (!isset($_SESSION['unique_id'])) {
     header("location: login.php");
 }
 ?>
+
 <!DOCTYPE html>
 <!-- ==============================
     Project:        北中城村 - Responsive HTML Bootstrap 3.3.4
@@ -46,6 +49,7 @@ if (!isset($_SESSION['unique_id'])) {
     <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/toggleMenu.css">
+    <link rel="stylesheet" href="css/load-more.css">
 
 </head>
 <!-- END HEAD -->
@@ -217,25 +221,57 @@ if (!isset($_SESSION['unique_id'])) {
     <!-- End General Questions -->
     <hr>
     <!--Form Comment : Start-->
-    <div id="fb-root">
-        <div class="fb-comments" data-href="https://static.mychouchou.life" data-width="1265" data-numposts="5"></div>
-    </div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0" nonce="6cnyYJ6f"></script>
-    <!-- <div class="container1">
-        <form method="post" data-blog-id="{{id}}" onsubmit="return addComment()">
-          <label for="fname">お名前 :</label>
-          <input type="text" id="fname" name="name" placeholder="Your name..">
-      
-          <label for="lname">メール :</label>
-          <input type="text" id="lname" name="email" placeholder="Your email..">
-      
-          <label for="subject">案件 :</label>
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-      
-          <input type="submit" value="Comment">
+    <div class="main-comment">
+        <p style="font-size  : 20px; font-weight: 500;">Add comment</p>
+        <form action="" method="post">
+            <label>Name :</label>
+            <input type="text" id="fname" name="name" placeholder="Your name..">
+
+            <label>Message</label>
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Write Something..."></textarea>
+            <button type="submit" name="post_comment" value="Comment">Comment</button>
+
         </form>
-      </div> -->
-    <!--Form Comment : End-->
+    </div>
+    <div class="main-comment">
+        <p style="font-size  : 20px; font-weight: 500;">Comments
+            <hr>
+        </p>
+        <div class="user-comment">
+            <?php
+            $sql = "SELECT * FROM comment_box";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+
+                while ($row = $result->fetch_assoc()) {
+                    noReload();
+                    // echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
+            ?>
+                    <div class="comment-body">
+                        <span><i><a onclick="showReply()">Reply</a></i></span>
+                        <p>"<?php echo $row['message']; ?>"</p>
+                    </div>
+                    <div class="user-img">
+                        <div class="avatar-user">
+                            <img src="img/guest-all.png" alt="" height="50px" width="50px">
+                        </div>
+                        <div class="date-post">
+                            <p><?php echo $row['time']; ?></p>
+                            <a><?php echo $row['name']; ?></a>
+                        </div>
+
+                    </div>
+
+            <?php }
+            }
+            ?>
+        </div>
+    </div>
+    <div class="load-more-main">
+        <button class="load-more">Load more comments</button>
+    </div>
     <hr>
     <!--========== END PAGE LAYOUT ==========-->
     <!-- Our Exceptional Solutions -->
@@ -329,6 +365,7 @@ if (!isset($_SESSION['unique_id'])) {
         </section>
     </div>
     <!--========== FOOTER ==========-->
+
     <footer class="footer">
         <!-- Links -->
         <div class="footer-seperator">
@@ -398,7 +435,7 @@ if (!isset($_SESSION['unique_id'])) {
     <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
 
     <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-    <script src="js/message.js"></script>
+    <!-- <script src="js/message.js"></script> -->
     <script src="javascript/users.js"></script>
     <!-- CORE PLUGINS -->
     <script src="vendor/jquery.min.js" type="text/javascript"></script>
@@ -422,6 +459,13 @@ if (!isset($_SESSION['unique_id'])) {
     <script src="js/toggleMenu.js"></script>
     <!--Count Vistor-->
     <script src="js/countVistor.js"></script>
+    <script src="js/reply-comment.js"></script>
+    <script src="js/load-more.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script>
+        noReload();
+    </script>
+
 </body>
 <!-- END BODY -->
 

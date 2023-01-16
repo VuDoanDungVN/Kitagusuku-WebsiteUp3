@@ -43,6 +43,7 @@ if (!isset($_SESSION['unique_id'])) {
     <link href="css/toggleMenu.css" rel="stylesheet">
     <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/load-more.css">
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
@@ -70,13 +71,16 @@ if (!isset($_SESSION['unique_id'])) {
                             <img class="logo-img logo-img-main" src="img/logo1.png" alt="Asentus Logo">
                             <img class="logo-img logo-img-active" src="img/logo2.png" alt="Asentus Logo">
                         </a>
+
                     </div>
+
                     <!-- End Logo -->
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse nav-collapse">
                     <div class="menu-container">
+
                         <ul class="navbar-nav navbar-nav-right">
                             <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="home.php">ホーム</a></li>
                             <li class="nav-item"><a class="nav-item-child nav-item-hover" href="#">会社情報</a>
@@ -133,6 +137,16 @@ if (!isset($_SESSION['unique_id'])) {
                 <!-- End Navbar Collapse -->
             </div>
         </nav>
+        <!--Time On Website : Start-->
+        <div class="current-time">
+            <span id="hours">00</span>
+            <span>:</span>
+            <span id="minutes">00</span>
+            <span>:</span>
+            <span id="seconds">00</span>
+            <span id="session">AM</span>
+        </div>
+        <!--Time On Website : End-->
         <!-- Navbar -->
     </header>
     <!--========== END HEADER ==========-->
@@ -164,7 +178,9 @@ if (!isset($_SESSION['unique_id'])) {
                         <a href="https://bit.ly/3va8LMV" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">もっと見る</a>
                     </div>
                 </div>
+
             </div>
+
             <!-- <div class="item">
                 <img class="img-responsive" src="img/1920x1080/02.jpg" alt="Slider Image">
                 <div class="container">
@@ -499,36 +515,39 @@ if (!isset($_SESSION['unique_id'])) {
     <div class="gallery-img">
         <div class="gallery-body">
             <a href="img/gallery/1.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/1.png" alt="">
+                <img class="img-load" src="img/gallery/1.png" alt="">
             </a>
             <a href="img/gallery/2.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/2.png" alt="">
+                <img class="img-load" src="img/gallery/2.png" alt="">
             </a>
             <a href="img/gallery/3.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/3.png" alt="">
+                <img class="img-load" src="img/gallery/3.png" alt="">
             </a>
             <a href="img/gallery/4.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/4.png" alt="">
+                <img class="img-load" src="img/gallery/4.png" alt="">
             </a>
             <a href="img/gallery/5.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/5.png" alt="">
+                <img class="img-load" src="img/gallery/5.png" alt="">
             </a>
             <a href="img/gallery/6.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/6.png" alt="">
+                <img class="img-load" src="img/gallery/6.png" alt="">
             </a>
             <a href="img/gallery/7.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/7.png" alt="">
+                <img class="img-load" src="img/gallery/7.png" alt="">
             </a>
             <a href="img/gallery/8.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/8.png" alt="">
+                <img class="img-load" src="img/gallery/8.png" alt="">
             </a>
             <a href="img/gallery/9.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/9.png" alt="">
+                <img class="img-load" src="img/gallery/9.png" alt="">
             </a>
             <a href="img/gallery/10.png" data-lightbox="models" data-title="Caption1">
-                <img src="img/gallery/10.png" alt="">
+                <img class="img-load" src="img/gallery/10.png" alt="">
             </a>
         </div>
+    </div>
+    <div class="load-more-main">
+        <button class="load-more">Load more</button>
     </div>
     <!-- Pagination -->
     <!--========== END PAGE LAYOUT ==========-->
@@ -573,6 +592,7 @@ if (!isset($_SESSION['unique_id'])) {
             </div>
         </section>
     </div>
+
 
     <!--========== FOOTER ==========-->
 
@@ -647,6 +667,7 @@ if (!isset($_SESSION['unique_id'])) {
     <script src="js/message.js"></script>
     <script src="javascript/users.js"></script>
     <!-- <script src="javascript/chat.js"></script> -->
+    <script src="js/time-pages.js"></script>
     <!-- CORE PLUGINS -->
     <script src="vendor/jquery.min.js" type="text/javascript"></script>
     <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
@@ -667,6 +688,9 @@ if (!isset($_SESSION['unique_id'])) {
     <script src="javascript/pass-show-hide.js"></script>
     <script src="javascript/signup.js"></script>
     <script src="js/toggleMenu.js"></script>
+    <script src="js/load-more.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
 </body>
 <!-- END BODY -->
 

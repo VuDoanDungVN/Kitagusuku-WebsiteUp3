@@ -14,3 +14,12 @@ git push -u origin main
 ---------------------------
 Hướng dẫn add comment trong blog
 https://www.youtube.com/watch?v=rwsMruuHv5U
+
+
+- Cách thay đổi ảnh trong profile
+https://www.youtube.com/watch?v=qW-QzMUNVVg
+
+- Cách thay đổi data trong sql
+https://www.youtube.com/watch?v=YcLHapPnDQg
+
+đang làm đến đoạn phút thứ 4
